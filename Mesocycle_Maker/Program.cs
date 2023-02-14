@@ -1,3 +1,12 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using MySql.Data.MySqlClient;
+using System.Data;
+using Mesocycle_Maker;
+using System.Configuration;
+
 namespace Mesocycle_Maker
 {
     public class Program
@@ -8,6 +17,16 @@ namespace Mesocycle_Maker
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IDbConnection>((s) =>
+            {
+                IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("training"));
+                conn.Open();
+                return conn;
+
+            });
+
+            builder.Services.AddTransient<IExercisePerMesoRepo, ExercisePerMesoRepo>();
 
             var app = builder.Build();
 

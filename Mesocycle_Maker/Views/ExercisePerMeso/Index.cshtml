@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ExercisePerMeso>
+
+    <h2> Exercises Per User Mesocyle ID </h2>
+    <table class="table">
+        <tr>
+            <th>User Meso ID</th>
+            <th>Exercise ID</th>
+            <th>Ten Rep Max</th>
+            <th>Day Of Exercise</th>
+        </tr>
+
+        @foreach (var ex in @Model)
+    {
+        <tr>
+            <td>@ex.UserMesoID</td>
+            <td>@ex.ExerciseID</td>
+            <td>@ex.ExerciseTenRPM</td>
+            <td>@ex.ExerciseOnDay</td>
+        </tr>
+    }
+</table>
+
