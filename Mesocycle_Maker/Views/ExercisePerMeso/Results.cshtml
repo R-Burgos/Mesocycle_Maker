@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Mesocycle_Maker.Models.ExercisePerMeso>
+
+<p>
+    <a asp-action="Create">Create New Mesocycle</a>
+</p>
+
+
+<h2>Results</h2>
+<table class="table" id="sortTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExerciseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExerciseTenRPM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExerciseOnDay)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseTenRPM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseOnDay)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

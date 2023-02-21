@@ -1,8 +1,62 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model User
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Mesocycle Maker</h1>
+</div>
+
+<div>
+    <h5>Enter your Mesocycle ID</h5>
+</div>
+
+
+<!--To pull up a user mesocycle-->
+<div>
+    <div>
+        <form asp-controller="ExercisePerMeso" asp-action="Results">
+
+            <div class="mb-3">
+
+                <label asp-for="UserMesoID" class="control-label">Mesocycle ID</label>
+                <input asp-for="UserMesoID" class="form-control" min=1 max=9999 maxlength=4/>
+                <span asp-validation-for="UserMesoID" class="text-danger"></span>
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+           
+            
+        </form>
+    </div>
+</div>
+
+
+<div class="container px-4">
+    <div class="row gx-5">
+        <div class="col">
+            <div class="p-3 border bg-light"></div>
+        </div>
+        <div class="col">
+            <div class="p-3 border bg-light"></div>
+        </div>
+    </div>
+</div>
+
+<!--To create a new user mesocycle-->
+<h2>Create a new mesocycle</h2>
+<p>Enter the information below to create a new mesocycle.</p>
+
+<div>
+    <form asp-controller="UserMeso" asp-action="NewUserMeso">
+
+        <div class="mb-3">
+            <label asp-for="UserMesoGoal" class="form-label">Mesocycle Goal</label>
+            <input asp-for="UserMesoGoal" class="form-control" id="UserMesoGoal" aria-describedby="mesoGoalHelp"/>
+            <div id="mesoGoalHelp" class="form-text">A short description about your goals for this mesocycle.</div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="UserMesoWeekLength" class="form-label">Number of weeks for mesocycle</label>
+            <input asp-for="UserMesoWeekLength" class="form-control" id="UserMesoWeekLength" min=4 max=12/>
+            <div id="UserMesoWeekLength" class="form-text">For best results, 4(min)-12(max).</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>

@@ -17,5 +17,11 @@ namespace Mesocycle_Maker.Controllers
             var ePM = repo.GetAll(); 
             return View(ePM);
         }
+
+        public IActionResult Results(int userMesoID)
+        {
+            var exPM = repo.GetOneWithNames(userMesoID);
+            return View("Results", exPM);
+        }
     }
 }
