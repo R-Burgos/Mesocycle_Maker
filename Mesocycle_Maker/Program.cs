@@ -28,6 +28,8 @@ namespace Mesocycle_Maker
 
             builder.Services.AddTransient<IExercisePerMesoRepo, ExercisePerMesoRepo>();
             builder.Services.AddTransient<IUserMesoRepo, UserMesoRepo>();
+            builder.Services.AddTransient<ICategoryRepo, CategoryRepo>();
+            builder.Services.AddTransient<IExerciseRepo, ExerciseRepo>();
 
             var app = builder.Build();
 

@@ -6,7 +6,6 @@ namespace Mesocycle_Maker
     public class CategoryRepo : ICategoryRepo
     {
         private readonly IDbConnection _connection;
-
         public CategoryRepo(IDbConnection connection)
         { 
             _connection = connection;
